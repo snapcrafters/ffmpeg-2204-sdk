@@ -9,7 +9,7 @@ name: ffmpeg-2204-sdk
 # committee, the community or a corporation.
 summary: SDK for ffmpeg-2204
 description: SDK to build ffmpeg-2204 content snap
-version: '7.1'
+version: '8.1'
 base: core22
 grade: stable
 confinement: strict
@@ -27,7 +27,7 @@ parts:
   nv-codec-headers:
     plugin: make
     source: https://github.com/FFmpeg/nv-codec-headers.git
-    source-tag: 'n12.2.72.0'
+    source-tag: 'n13.0.19.0'
     source-depth: 1
     make-parameters:
       - PREFIX=/usr
@@ -37,7 +37,7 @@ parts:
   srt:
     plugin: cmake
     source: https://github.com/Haivision/srt.git
-    source-tag: 'v1.5.4-rc.0'
+    source-tag: 'x1.2.0'
     source-depth: 1
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
@@ -51,7 +51,7 @@ parts:
   avisynth-plus:
     plugin: cmake
     source: https://github.com/AviSynth/AviSynthPlus.git
-    source-tag: 'v3.7.3'
+    source-tag: 'v3.7.5'
     source-depth: 1
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
@@ -75,7 +75,7 @@ parts:
   dav1d:
     plugin: meson
     source: https://code.videolan.org/videolan/dav1d.git
-    source-tag: '1.4.3'
+    source-tag: '1.5.3'
     source-depth: 1
     meson-parameters:
       - --prefix=/usr
@@ -90,7 +90,7 @@ parts:
   zimg:
     plugin: autotools
     source: https://github.com/sekrit-twc/zimg.git
-    source-tag: 'release-3.0.5'
+    source-tag: 'release-3.0.6'
     source-depth: 1
     autotools-configure-parameters:
       - --prefix=/usr
@@ -160,7 +160,7 @@ parts:
       - libva
     plugin: autotools
     source: https://git.ffmpeg.org/ffmpeg.git
-    source-branch: 'release/7.1'
+    source-branch: 'release/8.1'
     source-depth: 1
     build-packages:
       - libaom-dev
