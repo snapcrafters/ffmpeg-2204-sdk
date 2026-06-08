@@ -339,7 +339,9 @@ parts:
         sed -i 's#includedir=/usr#includedir=${prefix}#' $PC
       done
       if [ "$CRAFT_ARCH_TRIPLET" == "arm-linux-gnueabihf" ]; then
-        execstack --clear-execstack usr/lib/arm-linux-gnueabihf/libx264.so.164
+        x264_lib=$(find usr/lib/arm-linux-gnueabihf -maxdepth 1 -type f -name 'libx264.so.*' | sort | tail -n1)
+        test -n "$x264_lib"
+        execstack --clear-execstack "$x264_lib"
       fi
   deps:
     after: [ffmpeg, prefix-fix]
