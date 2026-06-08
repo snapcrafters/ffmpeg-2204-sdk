@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -48,7 +48,7 @@ jobs:
           multi-snap: true
           snapcraft-project-root: "ffmpeg-2204-sdk"
           store-token: ${{ secrets.SNAP_STORE_CANDIDATE }}
-          repo-token: ${{ secrets.SNAPCRAFTERS_BOT_COMMIT }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
   call-for-testing:
     name: 📣 Create call for testing
