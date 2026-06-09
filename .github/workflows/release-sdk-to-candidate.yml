@@ -39,6 +39,8 @@ jobs:
       matrix:
         architecture: ${{ fromJSON(needs.get-architectures.outputs.architectures-list) }}
     steps:
+      - name: Set unique Launchpad build branch
+        run: git config --global init.defaultBranch "build-${{ matrix.architecture }}-${{ github.run_id }}"
       - name: 🚢 Release to latest/candidate
         uses: snapcrafters/ci/release-to-candidate@main
         with:
